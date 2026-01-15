@@ -403,10 +403,10 @@ module ActiveAgent
                 content_parts = instructions_array.map do |instruction|
                   { type: "text", text: instruction }
                 end
-                [ { role: "developer", content: content_parts } ]
+                [ { role: "system", content: content_parts } ]
               else
                 instructions_array.map do |instruction|
-                  { role: "developer", content: instruction }
+                  { role: "system", content: instruction }
                 end
               end
             end
