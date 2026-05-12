@@ -75,7 +75,7 @@ module ActiveAgent
                   normalized = normalize_message(msg)
 
                   # Don't merge tool messages - each needs its own tool_call_id
-                  if grouped.empty? || grouped.last.role != normalized.role || normalized.role.to_s == "tool"
+                  if grouped.empty? || grouped.last.role != normalized.role || normalized.role.to_s == "tool" || normalized.role.to_s == "system"
                     grouped << normalized
                   else
                     # Merge consecutive same-role messages
